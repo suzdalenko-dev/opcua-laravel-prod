@@ -26,6 +26,8 @@ class PesadasIndividualesController extends Controller
             $plr->create_new($year, $month);
         }
 
+        $year  = date('Y');
+        $month = date('m');
         $plr->create_new($year, $month);
     }
 
