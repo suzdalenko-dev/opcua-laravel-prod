@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PesadaIndividual extends Model
 {
-    protected $table   = 'pesadas_individuales';
-    public $timestamps = false;
+    protected $table    = 'pesadas_individuales';
+    public $timestamps  = false;
     protected $fillable = [
         'ref_id',
         'weight_value',

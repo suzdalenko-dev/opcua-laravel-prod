@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\PesadasIndividualesController;
-use App\Services\CreacionPesadasIndividuales;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,5 +19,7 @@ Route::get('/', function () {
 
 Route::get('/create-individual-weights', [PesadasIndividualesController::class, 'crearPesadasIndividuales']);
 
+# http://192.168.14.1/api/get-pesadas-individuales?year=2026&month=06
+Route::get('/get-pesadas-individuales', [PesadasIndividualesController::class, 'getPesadasIndividuales']);
 
 
