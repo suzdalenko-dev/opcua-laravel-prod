@@ -46,7 +46,7 @@ class CreacionPesadasIndividuales{
             file_put_contents('log/alarma.log', date('Y-m-d H:i:s').' ACUMULADO UNICO 1 '.json_encode($line).PHP_EOL, FILE_APPEND);
         }
 
-        dump($line);
+        // dump($line);
     }
 
 

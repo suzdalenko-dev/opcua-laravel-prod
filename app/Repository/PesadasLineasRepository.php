@@ -51,7 +51,7 @@ class PesadasLineasRepository{
     }
 
 
-    var_dump($ps_lines);
+    // var_dump($ps_lines);
 
   
     $work_data        = []; 
