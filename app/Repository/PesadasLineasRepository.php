@@ -58,7 +58,7 @@ class PesadasLineasRepository{
 
     /* Busco las producciones individuales */
     foreach($ps_lines as $line){
-        $leyenda = $line->inicio_of.'__'.$line->art_erp.'__'.$line->art_name;
+        $leyenda = $line->inicio_of.'__'.$line->art_erp;
         
         /* Si no existe la produccion creamo el grupo */
         if(!isset($work_data[$leyenda]) ){
