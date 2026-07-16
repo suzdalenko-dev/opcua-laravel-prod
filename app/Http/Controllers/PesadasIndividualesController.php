@@ -19,7 +19,7 @@ class PesadasIndividualesController extends Controller
         $month       = date('m');
         $current_day = date('d');
 
-        if(in_array($current_day, [1, 2, 3])){
+        if(in_array($current_day, [1])){
             $month = $month - 1;
             if($month == 0){
                 $month = 12;
