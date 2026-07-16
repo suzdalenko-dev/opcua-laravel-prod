@@ -144,11 +144,19 @@ class CreacionPesadasIndividuales{
             $inicio_time        = strtotime($linea_anterior->fin_of);
             $fin_time           = strtotime($linea_actual->fin_of);
             
-            /* Registro incoherente */
-            if($num_bolasas_buenas <= 0 || $diff_kg <= 0 || $inicio_time == false || $fin_time == false || $fin_time < $inicio_time ){
+            /* Muestra intermedia: los kg avanzan pero el contador de bolsas aun no.
+               Ruido normal del poller (2 muestras en el mismo segundo). El siguiente
+               delta absorbe estos kg. No logueamos: es esperado y frecuente. */
+            if($num_bolasas_buenas == 0){
+                continue;
+            }
+
+            /* Registro incoherente de verdad: contador que baja o fechas rotas */
+            if($num_bolasas_buenas < 0 || $diff_kg <= 0 || $inicio_time == false || $fin_time == false || $fin_time < $inicio_time ){
                  file_put_contents('log/alarma.log', date('Y-m-d H:i:s').' REGISTRO NO VALIDO 1 '.json_encode($linea_actual).PHP_EOL, FILE_APPEND);
                 continue;
             }
+
 
             /*
                 PARADA LARGA: hueco de +5h entre este acumulado y el anterior.
