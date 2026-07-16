@@ -104,10 +104,8 @@ class PesadasLineasRepository{
 
 
     return response()->json([
-
-        'work_data' => $work_data,
-        'ps_lines'=> $ps_lines,
-          
-    ]);
+            'work_data' => $work_data,
+            'ps_lines'=> $ps_lines
+        ]);
     }
 }
