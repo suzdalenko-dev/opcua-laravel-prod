@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\PesadaIndividual;
 use App\Repository\PesadasLineasRepository;
 use App\Services\SearchPesadasIndividuales;
+use App\Services\CalculateGastoMaquinas;
 use Illuminate\Http\Request;
 
 
@@ -44,5 +45,16 @@ class PesadasIndividualesController extends Controller
         $month = (string) $request->query('month');
         $res   = $spi->returnPesadasIndividuales($year, $month);
         return response()->json($res);
+    }
+
+
+    /*
+        Informe de Mantenimiento
+    */
+    public function getPesadasInformeDesgasteMaquinas(Request $request, CalculateGastoMaquinas $calc){
+        $date_from = (string) $request->query('date_from');
+        $articles  = (string) $request->query('articles');
+        $kg        = 0; // $calc::sum_kg_line3($date_from, $articles);
+        return response()->json(['date_from' => $date_from, 'articles' => $articles, 'kg' => $kg ]);
     }
 }

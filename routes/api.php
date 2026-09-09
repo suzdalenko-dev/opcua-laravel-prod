@@ -22,4 +22,6 @@ Route::get('/create-individual-weights', [PesadasIndividualesController::class, 
 # http://192.168.14.1/api/get-pesadas-individuales?year=2026&month=06
 Route::get('/get-pesadas-individuales', [PesadasIndividualesController::class, 'getPesadasIndividuales']);
 
+# http://192.168.14.1/api/informe-gasto-maquinas-opcua?date_from=2026-01-01&articles=61,6,8,58
+Route::get('informe-gasto-maquinas-opcua', [PesadasIndividualesController::class, 'getPesadasInformeDesgasteMaquinas']);
 
